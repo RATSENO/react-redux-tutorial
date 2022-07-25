@@ -3,7 +3,7 @@
  const TOGGLE = 'todos/TOGGLE';
  const REMOVE = 'todos/REMOVE';
 
- export const chageInput = input => ({
+ export const changeInput = input => ({
     type : CHANGE_INPUT,
     input
  });
@@ -18,7 +18,7 @@
     }
  });
 
- export const toggle = text => ({
+ export const toggle = id => ({
     type: TOGGLE,
     id
  });
@@ -59,7 +59,7 @@
         case TOGGLE:
             return {
                 ...state,
-                todos: state.todos.map(todo=> todo.id != action.id ? {...todo, done:!todo.done} : todo)
+                todos: state.todos.map(todo=> todo.id === action.id ? {...todo, done:!todo.done} : todo)
             };         
         case REMOVE:
             return {
